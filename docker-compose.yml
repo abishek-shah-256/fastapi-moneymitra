@@ -1,0 +1,40 @@
+networks:
+  moneymitra_python_network:
+    driver: bridge
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    env_file:
+      - ./.env
+    restart: always
+    depends_on:
+      - moneymitra-postgres
+    networks:
+      - moneymitra_python_network
+    command: python main.py
+    container_name: moneymitra_python_container
+
+  moneymitra-postgres:
+    image: postgres:latest
+    restart: always
+    container_name: moneymitra_postgres_container
+    ports:
+      - "5435:5432"
+    env_file:
+      - ./.env
+    environment:
+      POSTGRES_USER: ${DB1_USER}
+      POSTGRES_PASSWORD: ${DB1_PASSWORD}
+      POSTGRES_DB: ${DB1_NAME}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - moneymitra_python_network
+
+volumes:
+  postgres_data:
