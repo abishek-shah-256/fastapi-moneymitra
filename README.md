@@ -19,13 +19,16 @@ Code: [Abishek Shah](mailto:developabishek@gmail.com) <br>
 ### 1. Create the `.env` File
 
 Create a file named `.env` in the root directory of your project with the following content:
-DATABASE1_URL=postgresql://postgres@moneymitra-postgres:5432/moneymitra1
+
+<pre>
+DATABASE1_URL=postgresql://postgres:postgres123@moneymitra-postgres:5432/moneymitra1
 DB1_DRIVER_NAME=postgresql
 DB1_HOST=moneymitra-postgres
 DB1_PORT=5432
 DB1_USER=postgres
 DB1_PASSWORD=postgres123
 DB1_NAME=moneymitra1
+</pre>
 
 
 ### 2. Run Docker Compose
