@@ -30,8 +30,11 @@ DB1_PASSWORD=postgres123
 DB1_NAME=moneymitra1
 </pre>
 
+### 2. Create the 'tmp' directory in the root folder
 
-### 2. Run Docker Compose
+Create the tmp folder to store the log files of the application
+
+### 3. Run Docker Compose
 
 Make sure you have Docker and Docker Compose installed on your system. Navigate to the directory containing your `docker-compose.yml` file and run:
 ```bash
